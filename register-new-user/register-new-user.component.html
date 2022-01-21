@@ -1,0 +1,95 @@
+<div class="login-view-wrapper custom-container">
+<div class="login-view">
+  <div class="logo-wrapper">
+    <h2 >SIGN UP</h2>
+  </div>
+  <div class="login-form-wrapper" >
+    <form class="ro-form" [formGroup]="signupForm">
+      <div class="form-group">
+        <label class="labelHead" for="username">
+          <b>Username</b>
+        </label>
+        <input type="text" id="username" placeholder="username" formControlName="userName">
+
+        <div class="form-error-messages"
+          id="error-no-username" *ngIf="f.userName.errors?.required && (f.userName.dirty || f.userName.touched)">
+          {{emptyUserName}}
+        </div>
+        <div class="form-error-messages"
+          id="error-minlength-username" *ngIf="f.userName.errors?.minlength && (f.userName.dirty || f.userName.touched)">
+          {{minlengthUserName}}
+        </div>
+        <div class="form-error-messages"
+          id="error-maxlength-username" *ngIf="f.userName.errors?.maxlength && (f.userName.dirty || f.userName.touched)">
+          {{maxlengthUserName}}
+        </div>
+        <div class="form-error-messages"
+          id="error-pattern-username" *ngIf="f.userName.errors?.pattern && (f.userName.dirty || f.userName.touched)">
+          {{userNamePattern}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="labelHead" for="password">
+          <b>Password</b>
+        </label>
+        <input type="password" id="password" placeholder="password" formControlName="password">
+        <div class="form-error-messages"
+          id="error-no-password" *ngIf="f.password.errors?.required && (f.password.dirty || f.password.touched)">
+          {{emptyPassword}}
+        </div>
+        <div class="form-error-messages"
+          id="error-minlength-password" *ngIf="f.password.errors?.minlength && (f.password.dirty || f.password.touched)">
+          {{minlengthPassword}}
+        </div>
+        <div class="form-error-messages"
+          id="error-maxlength-password" *ngIf="f.password.errors?.maxlength && (f.password.dirty || f.password.touched)">
+          {{maxlengthPassword}}
+        </div>
+        <div class="form-error-messages"
+          id="error-pattern-password" *ngIf="f.password.errors?.pattern && (f.password.dirty || f.password.touched)">
+          {{passwordPattern}}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="labelHead" for="mobile">
+          Contact number
+        </label>
+        <input type="number" value="" id="mobile" placeholder="mobile number" formControlName="mobile">
+        <div id="error-mobile" class="form-error-messages" *ngIf="f.mobile.errors && (f.mobile.dirty || f.mobile.touched)">
+          {{mobileErrMsg}}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="labelHead" for="email">
+          Email
+        </label>
+        <input type="email" value="" id="email" placeholder="Email" formControlName="email">
+        <div id="error-email" class="form-error-messages" *ngIf="f.email.errors && (f.email.dirty || f.email.touched)">
+          {{emailErrMsg}}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="labelHead" for="location" >
+          Location
+        </label>
+        <input type="text" value="" id="location" placeholder="Location" formControlName="location">
+        <div id="error-location" class="form-error-messages" *ngIf="f.location.errors && (f.location.dirty || f.location.touched)">
+          {{locationErrMsg}}
+        </div>
+      </div>
+
+      <div class="col-sm-12 clmn12">
+        <!-- call goBack method when clicking on this button-->
+        <button id="back" class="guest-btn" (click)=goBack()>Back</button>
+        <!-- disable button if form not valid -->
+        <!-- call signUp method when clicking on this button-->
+        <button id="signup" [disabled]="signupForm.invalid" (click)=signUp() class="login-btn" type="submit">Create Account</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+</div>
